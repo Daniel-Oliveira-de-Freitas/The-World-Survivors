@@ -14,8 +14,23 @@ var collected_experience = 0
 @onready var sprite = $Sprite2D
 @onready var walkTimer = $Timer
 
+#Ataques
+var iceSpear = preload("res://Player/Attacks/icespear.tscn")
 
-#IceSpear
+#Nodes para o ataque
+@onready var iceSpearTimer = $Attack/IceSpearTimer
+@onready var iceSpearAttackTimer = $Attack/IceSpearTimer/IceSpearAttackTimer
+
+#Upgrades do personagem
+var collected_upgrades = []
+var upgrade_options = []
+var armor = 0
+var speed = 0
+var spell_cooldown = 0
+var spell_size = 0
+var additional_attacks = 0
+
+#Lança de gelo
 var icespear_ammo = 0
 var icespear_baseammo = 0
 var icespear_attackspeed = 1.5
@@ -27,7 +42,7 @@ var tornado_baseammo = 0
 var tornado_attackspeed = 3
 var tornado_level = 0
 
-#Javelins
+#Dardo
 var javelin_ammo = 0
 var javelin_level = 0
 
@@ -35,29 +50,18 @@ var javelin_level = 0
 var enemy_close = []
 
 #GUI Elements
-@onready var experienceBar = $GUILayer/GUI/ExperienceBar
-@onready var labelLevel = $GUILayer/GUI/lbl_level
-@onready var upgradeOptions = $GUILayer/GUI/LevelUp/UpgradeOptions
-@onready var levelUpContainer = $GUILayer/GUI/LevelUp
-@onready var itemOption = preload("res://Utility/item_option.tscn")
-@onready var healthBar = $GUILayer/GUI/HealthBar
-@onready var lblTime = $GUILayer/GUI/lbl_timer
-@onready var collectedWeapons = $GUILayer/GUI/CollectedWeapons
-@onready var collectedUpgrades = $GUILayer/GUI/CollectedUpgrades
-@onready var collectedItems = preload("res://Player/GUI/item_container.tscn")
 @onready var deathPanel = get_node("%DeathPanel")
 @onready var lblResult = get_node("%lbl_Result")
 @onready var sndVictory = get_node("%snd_victory")
 @onready var sndLose = get_node("%snd_lose")
 
-
-#Sounds
-@onready var sndLevelUp = $GUILayer/GUI/LevelUp/snd_levelup
-
-
 #Signals
 signal playerdeath()
 
+func _ready():
+	attack()
+	_on_hitbox_hurt(0,0,0)
+	upgrade_character("icespear1")
 
 func _physics_process(_delta):
 	movement()
@@ -83,6 +87,11 @@ func movement():
 	velocity = mov.normalized()*movement_speed
 	move_and_slide()
 
+func attack():
+	if icespear_level > 0:
+		iceSpearTimer.wait_time = icespear_attackspeed * (1-spell_cooldown)
+		if iceSpearTimer.is_stopped():
+			iceSpearTimer.start()
 			
 func get_random_target():
 	var rand_choice_num = enemy_close.size()
@@ -92,13 +101,28 @@ func get_random_target():
 	else:
 		return Vector2.UP
 
-
 func _on_hitbox_hurt(damage, _angle, _knockback):
-
+	hp -= clamp(damage-armor, 1.0, 999.0)
 	if hp <= 0:
-		death()
-	healthBar.max_value = maxhp
-	healthBar.value = hp
+		print("você morreu")
+
+
+func _on_ice_spear_timer_timeout():
+	icespear_ammo += icespear_baseammo+additional_attacks
+	iceSpearAttackTimer.start()
+
+func _on_ice_spear_attack_timer_timeout():
+	if icespear_ammo > 0:
+		var icespear_attack = iceSpear.instantiate()
+		icespear_attack.position = position
+		icespear_attack.target = get_random_target()
+		icespear_attack.level = icespear_level
+		add_child(icespear_attack)
+		icespear_ammo -= 1
+		if icespear_ammo > 0:
+			iceSpearAttackTimer.start()
+		else:
+			iceSpearAttackTimer.stop()
 
 func death():
 	deathPanel.visible = true
@@ -107,70 +131,14 @@ func death():
 	var tween = deathPanel.create_tween()
 	tween.tween_property(deathPanel,"position",Vector2(220,50), 3.0).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 	tween.play()
-	if time >=300:
-		lblResult.text = "You Win"
-		sndVictory.play()
-	else:
-		lblResult.text = "You Lose"
-		sndLose.play()
 		
-
-
-
-
-
-
-
-
-
 func upgrade_character(upgrade):
 	match upgrade:
 		"icespear1":
 			icespear_level = 1
 			icespear_baseammo += 1
-		"icespear2":
-			icespear_level = 2
-			icespear_baseammo += 1
-		"icespear3":
-			icespear_level = 3
-		"icespear4":
-			icespear_level = 4
-			icespear_baseammo += 2
-		"tornado1":
-			tornado_level = 1
-			tornado_baseammo += 1
-		"tornado2":
-			tornado_level = 2
-			tornado_baseammo += 1
-		"tornado3":
-			tornado_level = 3
-			tornado_attackspeed -= 0.5
-		"tornado4":
-			tornado_level = 4
-			tornado_baseammo += 1
-		"javelin1":
-			javelin_level = 1
-			javelin_ammo = 1
-		"javelin2":
-			javelin_level = 2
-		"javelin3":
-			javelin_level = 3
-		"javelin4":
-			javelin_level = 4
-		"armor1","armor2","armor3","armor4":
-			movement_speed += 20.0
-		"tome1","tome2","tome3","tome4":
-			hp += 20
-			hp = clamp(hp,0,maxhp)
-	var option_children = upgradeOptions.get_children()
-	for i in option_children:
-		i.queue_free()
-	levelUpContainer.visible = false
-	levelUpContainer.position = Vector2(800,50)
+	attack()
 	get_tree().paused = false
-	
-
-
 
 func _on_enemy_detection_area_body_entered(body):
 	if not enemy_close.has(body):
@@ -188,7 +156,6 @@ func _on_collect_area_area_entered(area):
 	if area.is_in_group("loot"):
 		var gem_exp = area.grab()
 
-	
 
 func _on_button_click_end():
 	get_tree().paused = false
