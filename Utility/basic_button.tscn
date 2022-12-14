@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://ca16vj4x2cpvi" path="res://Audio/GUI/click.wav" id="4_4l4t5"]
 
 [node name="Button" type="Button"]
-custom_minimum_size = Vector2i(80, 30)
+custom_minimum_size = Vector2(80, 30)
 offset_right = 8.0
 offset_bottom = 8.0
 theme_override_fonts/font = ExtResource("1_0uqjf")
