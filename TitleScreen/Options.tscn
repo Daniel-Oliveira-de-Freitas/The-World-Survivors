@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7nke8dlo1l7y"]
+
+[ext_resource type="Script" path="res://TitleScreen/Options.gd" id="1_yqxu0"]
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yqxu0")
+metadata/_edit_horizontal_guides_ = [201.0]
+metadata/_edit_vertical_guides_ = [331.0]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -2.0
+offset_top = -16.0
+offset_right = 681.0
+offset_bottom = 397.0
+color = Color(0.172549, 0.254902, 0.321569, 1)
+
+[node name="optionsTitle" type="RichTextLabel" parent="."]
+offset_left = 266.0
+offset_top = 23.0
+offset_right = 396.0
+offset_bottom = 70.0
+theme_override_font_sizes/normal_font_size = 32
+text = "Options"
+
+[node name="fullScreenToogle" type="CheckButton" parent="."]
+offset_left = 302.0
+offset_top = 168.0
+offset_right = 326.0
+offset_bottom = 192.0
+
+[node name="fullscreenText" type="RichTextLabel" parent="."]
+offset_left = 233.0
+offset_top = 171.0
+offset_right = 298.0
+offset_bottom = 189.0
+theme_override_font_sizes/normal_font_size = 12
+text = "FullScreen:"
+
+[connection signal="pressed" from="fullScreenToogle" to="." method="_on_full_screen_toogle_pressed"]
