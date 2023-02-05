@@ -14,3 +14,8 @@ func _on_btn_exit_click_end():
 
 func _on_btn_options_pressed():
 	var _level = get_tree().change_scene_to_file(options)
+
+
+func _on_btn_how_to_play_pressed():
+	get_tree().change_scene_to_file('res://TitleScreen/HowToPlay.tscn')
+

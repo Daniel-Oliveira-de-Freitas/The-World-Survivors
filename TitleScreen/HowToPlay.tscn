@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://cewfyhxt72cp0"]
+
+[ext_resource type="Script" path="res://TitleScreen/HowToPlay.gd" id="1_yqxu0"]
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yqxu0")
+metadata/_edit_horizontal_guides_ = [201.0]
+metadata/_edit_vertical_guides_ = [331.0]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -2.0
+offset_top = -16.0
+offset_right = 681.0
+offset_bottom = 397.0
+color = Color(0.172549, 0.254902, 0.321569, 1)
+
+[node name="optionsTitle" type="RichTextLabel" parent="."]
+offset_left = 232.0
+offset_top = 60.0
+offset_right = 426.0
+offset_bottom = 107.0
+theme_override_font_sizes/normal_font_size = 32
+text = "Como Jogar"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 49.0
+offset_top = 190.0
+offset_right = 600.0
+offset_bottom = 216.0
+text = "Para movimentar o jogador utilize as telcas W, S, A, D ou teclas de cetas"
+
+[node name="Button" type="Button" parent="Label"]
+offset_left = 525.0
+offset_top = 130.0
+offset_right = 580.0
+offset_bottom = 161.0
+text = "Voltar"
+
+[connection signal="pressed" from="Label/Button" to="." method="_on_button_pressed"]

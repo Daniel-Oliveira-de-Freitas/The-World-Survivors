@@ -6,5 +6,5 @@ func _ready():
 	pass # Replace with function body.
 
 
-func _on_full_screen_toogle_pressed():
-	OS.window_fullscreen = !OS.window_fullscreen;
+func _on_button_pressed():
+	get_tree().change_scene_to_file('res://TitleScreen/menu.tscn')
