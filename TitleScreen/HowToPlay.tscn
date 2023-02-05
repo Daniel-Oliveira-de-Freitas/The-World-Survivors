@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cewfyhxt72cp0"]
+[gd_scene load_steps=3 format=3 uid="uid://cewfyhxt72cp0"]
 
 [ext_resource type="Script" path="res://TitleScreen/HowToPlay.gd" id="1_yqxu0"]
+[ext_resource type="PackedScene" uid="uid://dxa4hqlrime4h" path="res://Utility/basic_button.tscn" id="2_qw0kh"]
 
 [node name="Options" type="Control"]
 layout_mode = 3
@@ -14,6 +15,7 @@ metadata/_edit_horizontal_guides_ = [201.0]
 metadata/_edit_vertical_guides_ = [331.0]
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = -2.0
 offset_top = -16.0
 offset_right = 681.0
@@ -21,6 +23,7 @@ offset_bottom = 397.0
 color = Color(0.172549, 0.254902, 0.321569, 1)
 
 [node name="optionsTitle" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 232.0
 offset_top = 60.0
 offset_right = 426.0
@@ -29,17 +32,20 @@ theme_override_font_sizes/normal_font_size = 32
 text = "Como Jogar"
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 0
 offset_left = 49.0
 offset_top = 190.0
 offset_right = 600.0
 offset_bottom = 216.0
-text = "Para movimentar o jogador utilize as telcas W, S, A, D ou teclas de cetas"
+text = "Para movimentar o jogador utilize as teclas W, S, A, D ou teclas de setas.
+Para voltar ao menu aperte a tecla esc."
 
-[node name="Button" type="Button" parent="Label"]
-offset_left = 525.0
-offset_top = 130.0
-offset_right = 580.0
-offset_bottom = 161.0
+[node name="Button" parent="." instance=ExtResource("2_qw0kh")]
+layout_mode = 0
+offset_left = 553.0
+offset_top = 319.0
+offset_right = 633.0
+offset_bottom = 349.0
 text = "Voltar"
 
-[connection signal="pressed" from="Label/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

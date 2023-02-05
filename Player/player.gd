@@ -87,6 +87,8 @@ func _ready():
 
 func _physics_process(_delta):
 	movement()
+	if(Input.get_action_strength("leave")):
+		leaveGame()
 
 func movement():
 	var x_mov = Input.get_action_strength("right") - Input.get_action_strength("left")
@@ -381,3 +383,6 @@ func _on_button_click_end():
 	get_tree().paused = false
 	var _level = get_tree().change_scene_to_file("res://TitleScreen/menu.tscn")
 
+func leaveGame():
+	get_tree().paused = false
+	var _level = get_tree().change_scene_to_file("res://TitleScreen/menu.tscn")

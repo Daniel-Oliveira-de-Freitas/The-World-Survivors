@@ -14,7 +14,6 @@ grow_vertical = 2
 script = ExtResource("1_cwtjw")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
 offset_left = -17.0
 offset_top = -20.0
 offset_right = 666.0
@@ -22,7 +21,6 @@ offset_bottom = 393.0
 color = Color(0.172549, 0.254902, 0.321569, 1)
 
 [node name="Label" type="Label" parent="."]
-layout_mode = 0
 offset_top = 8.0
 offset_right = 640.0
 offset_bottom = 108.0
@@ -33,7 +31,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="btn_play" parent="." instance=ExtResource("2_8l8in")]
-layout_mode = 0
 offset_left = 254.0
 offset_top = 154.0
 offset_right = 377.0
@@ -41,28 +38,25 @@ offset_bottom = 184.0
 text = "Jogar"
 
 [node name="btn_exit" parent="." instance=ExtResource("2_8l8in")]
-layout_mode = 0
 offset_left = 255.0
 offset_top = 229.0
 offset_right = 377.0
 offset_bottom = 259.0
 text = "Sair"
 
-[node name="btn_howToPlay" type="Button" parent="."]
-layout_mode = 0
-offset_left = 254.0
-offset_top = 191.0
-offset_right = 376.0
-offset_bottom = 222.0
-text = "Como Jogar"
-
 [node name="Label2" type="Label" parent="."]
-layout_mode = 0
 offset_left = 448.0
 offset_top = 325.0
 offset_right = 629.0
 offset_bottom = 351.0
 text = "By: Cassio, Daniel e Will"
+
+[node name="btn_howToPlay" parent="." instance=ExtResource("2_8l8in")]
+offset_left = 254.0
+offset_top = 191.0
+offset_right = 376.0
+offset_bottom = 221.0
+text = "Como Jogar"
 
 [connection signal="click_end" from="btn_play" to="." method="_on_btn_play_click_end"]
 [connection signal="click_end" from="btn_exit" to="." method="_on_btn_exit_click_end"]
