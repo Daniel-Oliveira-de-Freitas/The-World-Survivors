@@ -114,10 +114,10 @@ offset_bottom = 360.0
 
 [node name="ExperienceBar" type="TextureProgressBar" parent="GUILayer/GUI"]
 layout_mode = 0
-offset_left = -7.0
-offset_top = 2.0
-offset_right = 633.0
-offset_bottom = 42.0
+offset_left = -6.0
+offset_top = 3.0
+offset_right = 634.0
+offset_bottom = 43.0
 texture_under = ExtResource("4_kujpr")
 texture_progress = ExtResource("5_niap6")
 tint_under = Color(0.180392, 0.270588, 1, 1)

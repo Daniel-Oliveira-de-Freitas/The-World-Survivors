@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://q112xmiowe1g"]
+[gd_scene load_steps=23 format=3 uid="uid://q112xmiowe1g"]
 
 [ext_resource type="Texture2D" uid="uid://bfdbcrpp4xqvr" path="res://Textures/dirt_full_new.png" id="1_lxphy"]
 [ext_resource type="PackedScene" uid="uid://18hqgfsg3qdu" path="res://Player/player.tscn" id="2_pxlo2"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dqb4uy8dkypuo" path="res://Enemies/enemy_super.tscn" id="9_dvrmr"]
 [ext_resource type="AudioStream" uid="uid://mnixawxbbkjj" path="res://Audio/Music/battleThemeA.mp3" id="10_ld47h"]
 [ext_resource type="Script" path="res://Audio/Music/snd_Music.gd" id="11_b7q2b"]
+[ext_resource type="Texture2D" uid="uid://uvm82ikiejhn" path="res://Textures/Grass 1.jpg" id="12_p6fay"]
 
 [sub_resource type="Resource" id="Resource_3md2h"]
 script = ExtResource("5_qo4sy")
@@ -101,6 +102,46 @@ texture = ExtResource("1_lxphy")
 region_enabled = true
 region_rect = Rect2(-2000, -2000, 2000, 2000)
 
+[node name="Background" type="Sprite2D" parent="Background"]
+texture_filter = 2
+texture_repeat = 2
+position = Vector2(-2000, 8)
+texture = ExtResource("1_lxphy")
+region_enabled = true
+region_rect = Rect2(-2000, -2000, 2000, 2000)
+
+[node name="Background" type="Sprite2D" parent="Background/Background"]
+texture_filter = 2
+texture_repeat = 2
+position = Vector2(3992, -16)
+texture = ExtResource("12_p6fay")
+region_enabled = true
+region_rect = Rect2(-2000, -2000, 2000, 2000)
+
+[node name="Background2" type="Sprite2D" parent="Background"]
+texture_filter = 2
+texture_repeat = 2
+position = Vector2(0, 1944)
+texture = ExtResource("1_lxphy")
+region_enabled = true
+region_rect = Rect2(-2000, -2000, 2000, 2000)
+
+[node name="Background" type="Sprite2D" parent="Background/Background2"]
+texture_filter = 2
+texture_repeat = 2
+position = Vector2(-2000, 8)
+texture = ExtResource("1_lxphy")
+region_enabled = true
+region_rect = Rect2(-2000, -2000, 2000, 2000)
+
+[node name="Background" type="Sprite2D" parent="Background/Background2/Background"]
+texture_filter = 2
+texture_repeat = 2
+position = Vector2(3992, 16)
+texture = ExtResource("1_lxphy")
+region_enabled = true
+region_rect = Rect2(-2000, -2000, 2000, 2000)
+
 [node name="Player" parent="." instance=ExtResource("2_pxlo2")]
 
 [node name="Enemy_spawner" parent="." instance=ExtResource("3_mhwjb")]
@@ -114,5 +155,38 @@ stream = ExtResource("10_ld47h")
 volume_db = -15.0
 autoplay = true
 script = ExtResource("11_b7q2b")
+
+[node name="Background2" type="Sprite2D" parent="."]
+texture_filter = 2
+texture_repeat = 2
+position = Vector2(1992, -1992)
+texture = ExtResource("12_p6fay")
+region_enabled = true
+region_rect = Rect2(-2000, -2000, 2000, 2000)
+
+[node name="Background" type="Sprite2D" parent="Background2"]
+texture_filter = 2
+texture_repeat = 2
+position = Vector2(-1920, 8)
+texture = ExtResource("1_lxphy")
+region_enabled = true
+region_rect = Rect2(-2000, -2000, 2000, 2000)
+
+[node name="Background2" type="Sprite2D" parent="Background2"]
+texture_filter = 2
+texture_repeat = 2
+position = Vector2(-1920, 8)
+texture = ExtResource("12_p6fay")
+region_enabled = true
+region_rect = Rect2(-2000, -2000, 2000, 2000)
+
+[node name="Background2" type="Sprite2D" parent="Background2/Background2"]
+texture_filter = 2
+texture_repeat = 2
+position = Vector2(-2020, 20)
+scale = Vector2(1.052, 0.996)
+texture = ExtResource("12_p6fay")
+region_enabled = true
+region_rect = Rect2(-2000, -2000, 2000, 2000)
 
 [connection signal="playerdeath" from="Player" to="snd_Music" method="_on_player_playerdeath"]

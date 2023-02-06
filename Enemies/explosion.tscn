@@ -4,7 +4,34 @@
 [ext_resource type="Script" path="res://Enemies/explosion.gd" id="2_81m5v"]
 [ext_resource type="AudioStream" uid="uid://cugvo7su7ii6h" path="res://Audio/SoundEffect/enemy_death.ogg" id="2_k4igu"]
 
-[sub_resource type="Animation" id="Animation_2dn2x"]
+[sub_resource type="Animation" id="Animation_xmo42"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_c470c"]
 resource_name = "explode"
 length = 0.34
 step = 0.02
@@ -33,37 +60,10 @@ tracks/1/keys = {
 "values": [true, false]
 }
 
-[sub_resource type="Animation" id="Animation_2qe7y"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_2aw6s"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2j7we"]
 _data = {
-"RESET": SubResource("Animation_2qe7y"),
-"explode": SubResource("Animation_2dn2x")
+"RESET": SubResource("Animation_xmo42"),
+"explode": SubResource("Animation_c470c")
 }
 
 [node name="Explosion" type="Sprite2D"]
@@ -80,7 +80,7 @@ autoplay = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_2aw6s")
+"": SubResource("AnimationLibrary_2j7we")
 }
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

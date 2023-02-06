@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://dqb4uy8dkypuo"]
 
 [ext_resource type="Script" path="res://Enemies/enemy_kolbold_weak.gd" id="1_xno64"]
-[ext_resource type="Texture2D" uid="uid://dhi765ekm34ba" path="res://Textures/Enemy/giant_amoeba_new.png" id="2_l5iro"]
+[ext_resource type="Texture2D" uid="uid://i5ac2smuujjt" path="res://Textures/Enemy/orc_knight_new.png" id="2_4lsf0"]
 [ext_resource type="PackedScene" uid="uid://b6rx8kpmk7ec0" path="res://Utility/hitbox.tscn" id="3_8p0y7"]
 [ext_resource type="PackedScene" uid="uid://d2viev0g5a5oy" path="res://Utility/hurtbox.tscn" id="4_d4v2w"]
 [ext_resource type="AudioStream" uid="uid://cr46aeoovjdg" path="res://Audio/SoundEffect/enemy_hit.ogg" id="5_4p208"]
@@ -67,7 +67,7 @@ experience = 50
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(5, 5)
-texture = ExtResource("2_l5iro")
+texture = ExtResource("2_4lsf0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
@@ -84,7 +84,7 @@ collision_mask = 4
 HitBoxType = 1
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
-position = Vector2(-0.5, 0.5)
+position = Vector2(6, 4)
 shape = SubResource("RectangleShape2D_8pruw")
 
 [node name="Hurtbox" parent="." instance=ExtResource("4_d4v2w")]
