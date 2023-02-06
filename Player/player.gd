@@ -27,7 +27,6 @@ var javelin = preload("res://Player/Attacks/javelin.tscn")
 @onready var tornadoAttackTimer = $Attack/TornadoTimer/TornadoAttackTimer
 @onready var javelinBase = $Attack/Javelins
 
-#Upgrades
 var collected_upgrades = []
 var upgrade_options = []
 var armor = 0
@@ -36,28 +35,24 @@ var spell_cooldown = 0
 var spell_size = 0
 var additional_attacks = 0
 
-#IceSpear
 var icespear_ammo = 0
 var icespear_baseammo = 0
 var icespear_attackspeed = 1.5
 var icespear_level = 0
 
-#Tornado
 var tornado_ammo = 0
 var tornado_baseammo = 0
 var tornado_attackspeed = 3
 var tornado_level = 0
 
-#Javelins
 var javelin_ammo = 0
 var javelin_level = 0
 
-#Enemy Related
 var enemy_close = []
 
-#GUI Elements
 @onready var experienceBar = $GUILayer/GUI/ExperienceBar
 @onready var labelLevel = $GUILayer/GUI/lbl_level
+@onready var gameOverHearth = $GUILayer/GUI/DeathPanel/gameOverHearth
 @onready var upgradeOptions = $GUILayer/GUI/LevelUp/UpgradeOptions
 @onready var levelUpContainer = $GUILayer/GUI/LevelUp
 @onready var itemOption = preload("res://Utility/item_option.tscn")
@@ -72,11 +67,9 @@ var enemy_close = []
 @onready var sndLose = get_node("%snd_lose")
 
 
-#Sounds
 @onready var sndLevelUp = $GUILayer/GUI/LevelUp/snd_levelup
 
 
-#Signals
 signal playerdeath()
 
 func _ready():
@@ -112,7 +105,6 @@ func movement():
 	move_and_slide()
 
 func attack():
-	#Weapons Start
 	if icespear_level > 0:
 		iceSpearTimer.wait_time = icespear_attackspeed * (1-spell_cooldown)
 		if iceSpearTimer.is_stopped():
@@ -152,6 +144,7 @@ func death():
 		sndVictory.play()
 	else:
 		lblResult.text = "Game over"
+		gameOverHearth.visible = true
 		sndLose.play()
 		
 
@@ -207,7 +200,7 @@ func spawn_javelin():
 func calculate_experience(gem_exp):
 	var exp_required = calculate_experiencecap()
 	collected_experience += gem_exp
-	if experience + collected_experience >= exp_required: #level up
+	if experience + collected_experience >= exp_required:
 		collected_experience -= exp_required-experience
 		experience_level += 1
 		experience = 0
@@ -312,19 +305,19 @@ func upgrade_character(upgrade):
 func get_random_item():
 	var dblist = []
 	for i in UpgradeDb.UPGRADES:
-		if i in collected_upgrades: #Find already collected upgrades
+		if i in collected_upgrades:
 			pass
-		elif i in upgrade_options: #If the upgrade is already an option
+		elif i in upgrade_options:
 			pass
-		elif UpgradeDb.UPGRADES[i]["type"] == "item": #Don't pick food
+		elif UpgradeDb.UPGRADES[i]["type"] == "item":
 			pass
-		elif UpgradeDb.UPGRADES[i]["prerequisite"].size() > 0: #Check for PreRequisites
+		elif UpgradeDb.UPGRADES[i]["prerequisite"].size() > 0:
 			for n in UpgradeDb.UPGRADES[i]["prerequisite"]:
 				if not n in collected_upgrades:
 					pass
 				else:
 					dblist.append(i)
-		else: #If there are no prequisites
+		else:
 			dblist.append(i)
 	if dblist.size() > 0:
 		var randomitem = dblist[randi_range(0,dblist.size()-1)]

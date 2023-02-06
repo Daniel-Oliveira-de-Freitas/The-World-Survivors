@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://18hqgfsg3qdu"]
+[gd_scene load_steps=20 format=3 uid="uid://18hqgfsg3qdu"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_vo58n"]
 [ext_resource type="Texture2D" uid="uid://b0atek3sapb1u" path="res://Textures/Player/player_sprite.png" id="2_04t8k"]
@@ -9,9 +9,10 @@
 [ext_resource type="FontFile" uid="uid://bmig6pfxgymgt" path="res://Font/tenderness.otf" id="6_vkpeb"]
 [ext_resource type="AudioStream" uid="uid://bs6phjtcylu4m" path="res://Audio/SoundEffect/levelup.ogg" id="7_10ugn"]
 [ext_resource type="Texture2D" uid="uid://cwsqyuuf681yx" path="res://Textures/GUI/health.png" id="7_wfpgj"]
+[ext_resource type="Texture2D" uid="uid://cy57oyx5153fx" path="res://Textures/GUI/gameOverHearth.png" id="10_4nqpt"]
 [ext_resource type="AudioStream" uid="uid://b53fkqsrygq2p" path="res://Audio/SoundEffect/Victory.wav" id="10_pf2cv"]
-[ext_resource type="AudioStream" uid="uid://de5cxv5cbes1g" path="res://Audio/SoundEffect/Lose.ogg" id="11_kkxt4"]
 [ext_resource type="PackedScene" uid="uid://dxa4hqlrime4h" path="res://Utility/basic_button.tscn" id="12_og56r"]
+[ext_resource type="AudioStream" uid="uid://00punqmrpjw7" path="res://Audio/SoundEffect/Lose.wav" id="12_s3n2y"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iu0qq"]
 radius = 5.0
@@ -107,13 +108,16 @@ layer = 2
 [node name="GUI" type="Control" parent="GUILayer"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 640.0
+offset_left = 6.0
+offset_right = 646.0
 offset_bottom = 360.0
 
 [node name="ExperienceBar" type="TextureProgressBar" parent="GUILayer/GUI"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -7.0
+offset_top = 2.0
+offset_right = 633.0
+offset_bottom = 42.0
 texture_under = ExtResource("4_kujpr")
 texture_progress = ExtResource("5_niap6")
 tint_under = Color(0.180392, 0.270588, 1, 1)
@@ -121,24 +125,25 @@ tint_over = Color(0, 0, 1, 1)
 tint_progress = Color(0.0784314, 0.0588235, 1, 1)
 
 [node name="HealthBar" type="TextureProgressBar" parent="GUILayer/GUI"]
-self_modulate = Color(1, 1, 1, 0.392157)
 layout_mode = 0
-offset_left = 304.0
-offset_top = 200.0
-offset_right = 336.0
-offset_bottom = 208.0
+offset_left = 7.0
+offset_top = 26.0
+offset_right = 39.0
+offset_bottom = 34.0
 value = 50.0
 texture_over = ExtResource("6_hrrnp")
 texture_progress = ExtResource("7_wfpgj")
+texture_progress_offset = Vector2(20, 5)
 
 [node name="lbl_level" type="Label" parent="GUILayer/GUI"]
 layout_mode = 0
-offset_left = 550.0
-offset_right = 650.0
-offset_bottom = 20.0
+offset_left = 542.0
+offset_top = 22.0
+offset_right = 642.0
+offset_bottom = 42.0
 theme_override_fonts/font = ExtResource("6_vkpeb")
 theme_override_font_sizes/font_size = 16
-text = "Level: 1"
+text = "Nivel: 1"
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -182,13 +187,20 @@ offset_right = 420.0
 offset_bottom = -50.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_di1so")
 
+[node name="gameOverHearth" type="Sprite2D" parent="GUILayer/GUI/DeathPanel"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(33.5, 29.75)
+scale = Vector2(0.877551, 0.944444)
+texture = ExtResource("10_4nqpt")
+
 [node name="lbl_Result" type="Label" parent="GUILayer/GUI/DeathPanel"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_right = 200.0
 offset_bottom = 50.0
 theme_override_fonts/font = ExtResource("6_vkpeb")
-text = "Result"
+text = "Resultado"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -199,15 +211,15 @@ volume_db = -10.0
 
 [node name="snd_lose" type="AudioStreamPlayer" parent="GUILayer/GUI/DeathPanel"]
 unique_name_in_owner = true
-stream = ExtResource("11_kkxt4")
+stream = ExtResource("12_s3n2y")
 volume_db = -10.0
 
 [node name="btn_menu" parent="GUILayer/GUI/DeathPanel" instance=ExtResource("12_og56r")]
 layout_mode = 0
 offset_left = 60.0
-offset_top = 200.0
+offset_top = 138.0
 offset_right = 140.0
-offset_bottom = 230.0
+offset_bottom = 168.0
 text = "Menu"
 
 [node name="lbl_timer" type="Label" parent="GUILayer/GUI"]
@@ -225,17 +237,17 @@ vertical_alignment = 1
 [node name="CollectedWeapons" type="GridContainer" parent="GUILayer/GUI"]
 layout_mode = 0
 offset_left = 8.0
-offset_top = 24.0
+offset_top = 51.0
 offset_right = 208.0
-offset_bottom = 40.0
+offset_bottom = 67.0
 columns = 10
 
 [node name="CollectedUpgrades" type="GridContainer" parent="GUILayer/GUI"]
 layout_mode = 0
 offset_left = 8.0
-offset_top = 40.0
+offset_top = 67.0
 offset_right = 208.0
-offset_bottom = 56.0
+offset_bottom = 83.0
 columns = 10
 
 [connection signal="hurt" from="Hitbox" to="." method="_on_hitbox_hurt"]

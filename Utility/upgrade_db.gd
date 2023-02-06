@@ -7,7 +7,7 @@ const UPGRADES = {
 		"icon": WEAPON_PATH + "ice_spear.png",
 		"displayname": "Lança de gelo",
 		"details": "atira uma lança de gelo em um inimigo aleatorio",
-		"level": "Level: 1",
+		"level": "Nivel: 1",
 		"prerequisite": [],
 		"type": "weapon"
 	},
@@ -15,7 +15,7 @@ const UPGRADES = {
 		"icon": WEAPON_PATH + "ice_spear.png",
 		"displayname": "Lança de gelo",
 		"details": "Lança uma ice spear adicional",
-		"level": "Level: 2",
+		"level": "Nivel: 2",
 		"prerequisite": ["icespear1"],
 		"type": "weapon"
 	},
@@ -23,7 +23,7 @@ const UPGRADES = {
 		"icon": WEAPON_PATH + "ice_spear.png",
 		"displayname": "Lança de gelo",
 		"details": "As laças de gelo passam por mais um inimigo e ganham +3 de dano",
-		"level": "Level: 3",
+		"level": "Nivel: 3",
 		"prerequisite": ["icespear2"],
 		"type": "weapon"
 	},
@@ -31,7 +31,7 @@ const UPGRADES = {
 		"icon": WEAPON_PATH + "ice_spear.png",
 		"displayname": "Lança de gelo",
 		"details": "2 Lanças de gelo adicionais são lançadas",
-		"level": "Level: 4",
+		"level": "Nivel: 4",
 		"prerequisite": ["icespear3"],
 		"type": "weapon"
 	},
@@ -39,7 +39,7 @@ const UPGRADES = {
 		"icon": WEAPON_PATH + "javelin_3_new_attack.png",
 		"displayname": "Lança mágica",
 		"details": "A Lança mágica lhe seguirá atacando os inimigos em linha reta",
-		"level": "Level: 1",
+		"level": "Nivel: 1",
 		"prerequisite": [],
 		"type": "weapon"
 	},
@@ -47,7 +47,7 @@ const UPGRADES = {
 		"icon": WEAPON_PATH + "javelin_3_new_attack.png",
 		"displayname": "Lança mágica",
 		"details": "A Lança mágica irá atacar um inimigo adicional por ataque",
-		"level": "Level: 2",
+		"level": "Nivel: 2",
 		"prerequisite": ["javelin1"],
 		"type": "weapon"
 	},
@@ -55,7 +55,7 @@ const UPGRADES = {
 		"icon": WEAPON_PATH + "javelin_3_new_attack.png",
 		"displayname": "Lança mágica",
 		"details": "A lança mágica atacará um inimigo adicional por ataque",
-		"level": "Level: 3",
+		"level": "Nivel: 3",
 		"prerequisite": ["javelin2"],
 		"type": "weapon"
 	},
@@ -63,7 +63,7 @@ const UPGRADES = {
 		"icon": WEAPON_PATH + "javelin_3_new_attack.png",
 		"displayname": "Lança mágica",
 		"details": "A lança magica irá infligir mais + 5 de dado por atque e causa 20% de empurrão adicional",
-		"level": "Level: 4",
+		"level": "Nivel: 4",
 		"prerequisite": ["javelin3"],
 		"type": "weapon"
 	},
@@ -71,7 +71,7 @@ const UPGRADES = {
 		"icon": WEAPON_PATH + "tornado.png",
 		"displayname": "Tornado",
 		"details": "Um tornado é criado e anda aleatoriamente na direção do player",
-		"level": "Level: 1",
+		"level": "Nivel: 1",
 		"prerequisite": [],
 		"type": "weapon"
 	},
@@ -79,7 +79,7 @@ const UPGRADES = {
 		"icon": WEAPON_PATH + "tornado.png",
 		"displayname": "Tornado",
 		"details": "Um tornado adicional é criado",
-		"level": "Level: 2",
+		"level": "Nivel: 2",
 		"prerequisite": ["tornado1"],
 		"type": "weapon"
 	},
@@ -87,7 +87,7 @@ const UPGRADES = {
 		"icon": WEAPON_PATH + "tornado.png",
 		"displayname": "Tornado",
 		"details": "O cooldown do tornado é reduzido por 0.5 segundos",
-		"level": "Level: 3",
+		"level": "Nivel: 3",
 		"prerequisite": ["tornado2"],
 		"type": "weapon"
 	},
@@ -95,7 +95,7 @@ const UPGRADES = {
 		"icon": WEAPON_PATH + "tornado.png",
 		"displayname": "Tornado",
 		"details": "Um tornado adicional é criado e o knockback aumenta em 25%",
-		"level": "Level: 4",
+		"level": "Nivel: 4",
 		"prerequisite": ["tornado3"],
 		"type": "weapon"
 	},
@@ -103,7 +103,7 @@ const UPGRADES = {
 		"icon": ICON_PATH + "helmet_1.png",
 		"displayname": "Armadura",
 		"details": "Reduz o dano recebido por 1 ponto",
-		"level": "Level: 1",
+		"level": "Nivel: 1",
 		"prerequisite": [],
 		"type": "upgrade"
 	},
@@ -111,7 +111,7 @@ const UPGRADES = {
 		"icon": ICON_PATH + "helmet_1.png",
 		"displayname": "Armadura",
 		"details": "Reduz o dano recebido por 1 ponto",
-		"level": "Level: 2",
+		"level": "Nivel: 2",
 		"prerequisite": ["armor1"],
 		"type": "upgrade"
 	},
@@ -119,7 +119,7 @@ const UPGRADES = {
 		"icon": ICON_PATH + "helmet_1.png",
 		"displayname": "Armadura",
 		"details": "Reduz o dano recebido por 1 ponto",
-		"level": "Level: 3",
+		"level": "Nivel: 3",
 		"prerequisite": ["armor2"],
 		"type": "upgrade"
 	},
@@ -127,7 +127,7 @@ const UPGRADES = {
 		"icon": ICON_PATH + "helmet_1.png",
 		"displayname": "Armadura",
 		"details": "Reduz o dano recebido por 1 ponto",
-		"level": "Level: 4",
+		"level": "Nivel: 4",
 		"prerequisite": ["armor3"],
 		"type": "upgrade"
 	},
@@ -135,7 +135,7 @@ const UPGRADES = {
 		"icon": ICON_PATH + "boots_4_green.png",
 		"displayname": "Velocidade",
 		"details": "Aumenta a velocidade em 50% da velocidade base",
-		"level": "Level: 1",
+		"level": "Nivel: 1",
 		"prerequisite": [],
 		"type": "upgrade"
 	},
@@ -143,7 +143,7 @@ const UPGRADES = {
 		"icon": ICON_PATH + "boots_4_green.png",
 		"displayname": "Velocidade",
 		"details": "Aumenta a velocidade em 50% da velocidade base",
-		"level": "Level: 2",
+		"level": "Nivel: 2",
 		"prerequisite": ["speed1"],
 		"type": "upgrade"
 	},
@@ -151,7 +151,7 @@ const UPGRADES = {
 		"icon": ICON_PATH + "boots_4_green.png",
 		"displayname": "Velocidade",
 		"details": "Aumenta a velocidade em 50% da velocidade base",
-		"level": "Level: 3",
+		"level": "Nivel: 3",
 		"prerequisite": ["speed2"],
 		"type": "upgrade"
 	},
@@ -159,7 +159,7 @@ const UPGRADES = {
 		"icon": ICON_PATH + "boots_4_green.png",
 		"displayname": "Velocidade",
 		"details": "Aumenta a velocidade em 50% da velocidade base",
-		"level": "Level: 4",
+		"level": "Nivel: 4",
 		"prerequisite": ["speed3"],
 		"type": "upgrade"
 	},
@@ -167,7 +167,7 @@ const UPGRADES = {
 		"icon": ICON_PATH + "thick_new.png",
 		"displayname": "Livro",
 		"details": "Aumenta o tamanho dos feitiços em 10% adicionais de seu tamanho base",
-		"level": "Level: 1",
+		"level": "Nivel: 1",
 		"prerequisite": [],
 		"type": "upgrade"
 	},
@@ -175,7 +175,7 @@ const UPGRADES = {
 		"icon": ICON_PATH + "thick_new.png",
 		"displayname": "Livro",
 		"details": "Aumenta o tamanho dos feitiços em 10% adicionais de seu tamanho base",
-		"level": "Level: 2",
+		"level": "Nivel: 2",
 		"prerequisite": ["tome"],
 		"type": "upgrade"
 	},
@@ -183,7 +183,7 @@ const UPGRADES = {
 		"icon": ICON_PATH + "thick_new.png",
 		"displayname": "Livro",
 		"details": "Aumenta o tamanho dos feitiços em 10% adicionais de seu tamanho base",
-		"level": "Level: 3",
+		"level": "Nivel: 3",
 		"prerequisite": ["tome2"],
 		"type": "upgrade"
 	},
@@ -191,39 +191,39 @@ const UPGRADES = {
 		"icon": ICON_PATH + "thick_new.png",
 		"displayname": "Livro",
 		"details": "Aumenta o tamanho dos feitiços em 10% adicionais de seu tamanho base",
-		"level": "Level: 4",
+		"level": "Nivel: 4",
 		"prerequisite": ["tome3"],
 		"type": "upgrade"
 	},
 	"scroll1": {
 		"icon": ICON_PATH + "scroll_old.png",
-		"displayname": "Rolagem",
+		"displayname": "Pergaminho",
 		"details": "Diminuição do tempo de recarga dos feitiços em 5% adicionais de seu tempo base",
-		"level": "Level: 1",
+		"level": "Nivel: 1",
 		"prerequisite": [],
 		"type": "upgrade"
 	},
 	"scroll2": {
 		"icon": ICON_PATH + "scroll_old.png",
-		"displayname": "Rolagem",
+		"displayname": "Pergaminho",
 		"details": "Diminuição do tempo de recarga dos feitiços em 5% adicionais de seu tempo base",
-		"level": "Level: 2",
+		"level": "Nivel: 2",
 		"prerequisite": ["scroll1"],
 		"type": "upgrade"
 	},
 	"scroll3": {
 		"icon": ICON_PATH + "scroll_old.png",
-		"displayname": "Rolagem",
+		"displayname": "Pergaminho",
 		"details": "Diminuição do tempo de recarga dos feitiços em 5% adicionais de seu tempo base",
-		"level": "Level: 3",
+		"level": "Nivel: 3",
 		"prerequisite": ["scroll2"],
 		"type": "upgrade"
 	},
 	"scroll4": {
 		"icon": ICON_PATH + "scroll_old.png",
-		"displayname": "Rolagem",
+		"displayname": "Pergaminho",
 		"details": "Diminuição do tempo de recarga dos feitiços em 5% adicionais de seu tempo base",
-		"level": "Level: 4",
+		"level": "Nivel: 4",
 		"prerequisite": ["scroll3"],
 		"type": "upgrade"
 	},
@@ -231,7 +231,7 @@ const UPGRADES = {
 		"icon": ICON_PATH + "urand_mage.png",
 		"displayname": "Anel",
 		"details": "Seus feitiços agora geram mais 1 ataque adicional",
-		"level": "Level: 1",
+		"level": "Nivel: 1",
 		"prerequisite": [],
 		"type": "upgrade"
 	},
@@ -239,7 +239,7 @@ const UPGRADES = {
 		"icon": ICON_PATH + "urand_mage.png",
 		"displayname": "Anel",
 		"details": "Suas magias agora lançam 1 ataque adicional",
-		"level": "Level: 2",
+		"level": "Nivel: 2",
 		"prerequisite": ["ring1"],
 		"type": "upgrade"
 	},

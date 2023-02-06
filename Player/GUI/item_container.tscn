@@ -15,7 +15,6 @@ texture = ExtResource("1_448qx")
 script = ExtResource("1_rgw5i")
 
 [node name="ItemTexture" type="TextureRect" parent="."]
-layout_mode = 0
 offset_left = 1.0
 offset_top = 1.0
 offset_right = 34.0

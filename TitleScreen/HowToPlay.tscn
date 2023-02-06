@@ -15,7 +15,6 @@ metadata/_edit_horizontal_guides_ = [201.0]
 metadata/_edit_vertical_guides_ = [331.0]
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
 offset_left = -2.0
 offset_top = -16.0
 offset_right = 681.0
@@ -23,7 +22,6 @@ offset_bottom = 397.0
 color = Color(0.172549, 0.254902, 0.321569, 1)
 
 [node name="optionsTitle" type="RichTextLabel" parent="."]
-layout_mode = 0
 offset_left = 232.0
 offset_top = 60.0
 offset_right = 426.0
@@ -32,7 +30,6 @@ theme_override_font_sizes/normal_font_size = 32
 text = "Como Jogar"
 
 [node name="Label" type="Label" parent="."]
-layout_mode = 0
 offset_left = 49.0
 offset_top = 190.0
 offset_right = 600.0
@@ -41,7 +38,6 @@ text = "Para movimentar o jogador utilize as teclas W, S, A, D ou teclas de seta
 Para voltar ao menu aperte a tecla esc."
 
 [node name="Button" parent="." instance=ExtResource("2_qw0kh")]
-layout_mode = 0
 offset_left = 553.0
 offset_top = 319.0
 offset_right = 633.0
